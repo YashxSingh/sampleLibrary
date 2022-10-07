@@ -1,0 +1,66 @@
+<div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+      <form #libraryForm="ngForm" (submit)="onLibrarySubmit(libraryForm)">
+
+        <div class="formbold-mb-5">
+          <label for="name" class="formbold-form-label"> Name </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            class="formbold-form-input"
+            ngModel #name="ngModel"
+            
+            required
+          />
+          <span *ngIf="name.invalid && name.touched">
+            <small> Name is invalid</small>
+          </span>
+        </div>
+
+        <div class="formbold-mb-5">
+          <label for="phone" class="formbold-form-label"> Book Name </label>
+          <input
+            type="text"
+            name="book_name"
+            id="phone"
+            placeholder="Enter your phone number"
+            class="formbold-form-input"
+            ngModel #book_name="ngModel"
+            required
+          />
+          <span *ngIf="book_name.invalid && book_name.touched">
+            <small> Book name is invalid</small>
+          </span>
+        </div>
+        
+        <div class="flex flex-wrap formbold--mx-3">
+          <div class="w-full sm:w-half formbold-px-3">
+            <div class="formbold-mb-5 w-full">
+              <label for="date" class="formbold-form-label"> Issue Date </label>
+              <input
+                type="date"
+                name="issue_date"
+                id="date"
+                class="formbold-form-input"
+                ngModel #issue_date="ngModel"
+                required
+              />
+            </div>
+          </div>
+          
+        </div>
+  
+        
+  
+        <div>
+          
+            <input class="formbold-btn" type="submit" value="Issue Book" [disabled]="!libraryForm.valid">
+        </div>
+      </form>
+    </div>
+  </div>
+  
